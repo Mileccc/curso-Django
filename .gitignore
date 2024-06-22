@@ -1,0 +1,45 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media
+
+# Environment variables
+.env
+
+# macOS
+.DS_Store
+
+# Python
+*.py[cod]
+*$py.class
+
+# Environments
+venv/
+env/
+ENV/
+venv.bak/
+venv.bak/
+
+# Pytest
+.coverage
+.tox/
+.cache
+
+# Migrations
+*/migrations/*
+
+# Documentation
+docs/_build/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+
+# Pycharm
+.idea/
+
+# VS Code
+.vscode/

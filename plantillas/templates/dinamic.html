@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple</title>
+</head>
+<body>
+
+    {# Esto es un comentario en Django que no es renderizado en el HTML #}
+
+    {% comment %}
+        En la parte inferior recorremos las categorias y las pintamos.
+        En caso de ser 'code', la categoría se muestra en negrita.
+    {% endcomment %}
+
+    <h1>Hola {{name}}</h1>
+    <h3>Categorias</h3>
+    <ul>
+        {% for i in categories %}
+            {% if i == "code" %}
+                <li><b> {{ i|upper }} </b></li>
+            {% else %}
+                <li>{{i}} </li>
+            {% endif %}
+        {% endfor %}
+        <h5>Total de categorías: {{ categories|length }}</h5>
+    </ul>
+
+    
+
+    
+</body>
+</html>
