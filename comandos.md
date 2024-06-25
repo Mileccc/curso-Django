@@ -1,4 +1,9 @@
 # COMANDOS PRINCIPALES
+
+### 0. Instalar Django
+```bash
+pip install django
+```
 ___
 ### 1. Crear proyecto
 ```py
@@ -53,7 +58,10 @@ DEBUG = env('DEBUG')
 
 # Configuración de la base de datos
 DATABASES = {
-    'default': env.db(),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, env('DATABASE_NAME')),
+    }
 }
 
 # Otras configuraciones...
@@ -109,4 +117,44 @@ docs/_build/
 ```
 ___
 
-### 6. 
+### 6. Añadir templates y archivos estaticos
+
+```python
+"DIRS": ['templates'],
+```
+
+```python
+STATIC_URL = "static/"
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    'var/www/static',
+]
+```
+
+### Checkear si una aplicación está correctamente instalada
+```py
+python manage.py check [nombre_app]
+```
+___
+### 7. Pasar los modelos a formato sql
+```py
+python manage.py makemigrations
+python manage.py migrate
+```
+___
+### 8. Datos dummys
+
+```python
+pip install django-seed
+```
+
+Una vez instalado ``django-seed`` es necesario añadirlo a ``INSTALLED_APPS`` en ``settings.py``.
+
+link a documentacion: [github](https://github.com/Brobin/django-seed)
+
+Para poblar la BD con los datos fake de los modelos usaremos:
+```bash
+python manage.py seed post --number=50 
+```
+> Nota: Hay que instalar "pip install psycopg2-binary"

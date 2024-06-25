@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queries</title>
+</head>
+<body>
+    <h3>Obtener todos los autores que contienen en su nombre la palabra 'music'</h3>
+    <ul>
+        {%for filter in filtered3%}
+        <li>{{filter.id}} | {{filter.name}}</li>
+        {%endfor%}
+    </ul>
+
+
+    <h3>Obtener todos los elementos cuyo id sea menor o igual a 15</h3>
+    <ul>
+        {%for filter in filtered2%}
+        <li>{{filter.id}} | {{filter.email}}</li>
+        {%endfor%}
+    </ul>
+
+    <h3>Elementos ORDENADOR por email. (ORDER_BY)</h3>
+    <ul>
+        {%for order in orders%}
+        <li>{{order.id}} | {{order.email}}</li>
+        {%endfor%}
+    </ul>
+
+    <h3>Obteniendo 10 valores saltando los 5 primeros(OFFSET)</h3>
+    <ul>
+        {%for offset in offsets%}
+        <li>{{offset.email}}</li>
+        {%endfor%}
+    </ul>
+
+
+    <h3>Obteniendo los 10 primeros.(LIMIT)</h3>
+    <ul>
+        {%for limit in limits%}
+        <li>{{limit.email}}</li>
+        {%endfor%}
+    </ul>
+
+    <h3>Obteniendo un único elemento filtrado por ID</h3>
+    <p>{{author.name}} | {{author.email}}</p>
+
+    <h3>Buscando autor donde el email sea bryanleach@example.net</h3>
+    <ul>
+        {%for filter in filtered%}
+        <li>{{filter.name}} | {{filter.email}}</li>
+        {%endfor%}
+    </ul>
+
+    <h3>Todos los Autores</h3>
+    <ul>
+        {%for author in authors%}
+        <li>{{author.name}} ({{author.email}})</li>
+        {%endfor %}
+    </ul>
+
+    <h3>Todos los Autores con email mayor a 25 caracteres</h3>
+    <ul>
+        {%for author in authors%}
+            {% if author.email|length > 25 %}
+            <li>{{author.name}} ({{author.email}})</li>
+            {%endif%}
+        {%endfor %}
+    </ul>
+
+    <h3>Total de autores: {{authors|length}}</h3>
+</body>
+</html>

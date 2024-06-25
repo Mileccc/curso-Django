@@ -1,0 +1,13 @@
+
+
+<!-- GET: Envia información no sensible -->
+<!-- POST: Envia informaciómn sensible (contraseñas)-->
+
+<form action="{% url 'goal' %}" method="GET">
+    <h3>Formulario de Contacto</h3>
+    <label for="">Nombre: </label>
+    <input type="text" name="name" placeholder="Escribe tu nombre...">
+    <label for="">Comentario: </label>
+    <input type="text" name ="message" placeholder="Escribe tu comentario...">
+    <input type="submit" value="Enviar">
+</form>

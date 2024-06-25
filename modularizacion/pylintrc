@@ -1,0 +1,11 @@
+[MASTER]
+ignore=migrations
+load-plugins=pylint_django
+
+[MESSAGES CONTROL]
+disable=
+    C0114,  # Missing module docstring
+    C0115,  # Missing class docstring
+    C0116,  # Missing function or method docstring
+    E1101,  # no-member
+    E0401   # import-error

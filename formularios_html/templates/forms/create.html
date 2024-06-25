@@ -1,0 +1,8 @@
+
+
+<form action="{% url 'postgoal' %}" method="POST">
+    <!--Cuando enviamos algo en modo 'POST' hay que incluir la clausula {%csrf_token%}-->
+    {% csrf_token %}
+    <input type="text" name="info" placeholder="Escribe algo...">
+    <input type="submit" value="Enviar">
+</form>
